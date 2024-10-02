@@ -14,13 +14,15 @@ animals_data = load_data('animals_data.json')
 output = ""
 
 for animal in animals_data:
-    output += f"Name: {animal['name']}\n"
-    output += f"Diet: {animal['characteristics']['diet']}\n"
-    output += f"Location: {animal['locations'][0]}\n"
+    output += '<li class="cards__item">'
+    output += f"Name: {animal['name']}</br>"
+    output += f"Diet: {animal['characteristics']['diet']}</br>"
+    output += f"Location: {animal['locations'][0]}</br>"
     try:
-      output += f"Type: {animal['characteristics']['type']}\n\n"
+      output += f"Type: {animal['characteristics']['type']}</br>"
     except:
       pass
+    output += '</li>'
 
 new_html_content = html_content.replace("__REPLACE_ANIMALS_INFO__", output)
 
